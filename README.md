@@ -134,6 +134,10 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 	```
 	* Como en este caso se tienen tres operaciones basadas en _callbacks_, y que las mismas requieren realizarse en un orden específico, tenga en cuenta cómo usar las promesas de JavaScript [mediante alguno de los ejemplos disponibles](http://codepen.io/hcadavid/pen/jrwdgK).
 
+	**Luego de ingresar a la página después de desplegarla, se ve que ahora se calcula nuevamente los puntos totales de usuario, como se ve a continuación.**
+
+	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Puntaje.PNG)
+
 4. Agregue el botón 'Create new blueprint', de manera que cuando se oprima: 
 	* Se borre el canvas actual.
 	* Se solicite el nombre del nuevo 'blueprint' (usted decide la manera de hacerlo).
