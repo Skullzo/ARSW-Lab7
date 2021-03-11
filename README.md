@@ -68,7 +68,6 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 		<canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
 		</br>
 		<button type="button" onclick="app.modify()">Save/Update</button>
-		<button type="button" onclick="app.delete()">Delete</button>
 	</div>	
 	```
 	
@@ -141,6 +140,28 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 4. Agregue el botón 'Create new blueprint', de manera que cuando se oprima: 
 	* Se borre el canvas actual.
 	* Se solicite el nombre del nuevo 'blueprint' (usted decide la manera de hacerlo).
+	
+	**Primero se agrega el botón ```Create new blueprint``` en el ```index.html```, quedando el código de la siguiente forma.**
+
+	```html
+	<div class="column" >
+		<button type="button" onclick="app">Create new blueprint</button>
+		</br>
+		</br>
+		</br>
+		<canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+		</br>
+		<button type="button" onclick="app.modify()">Save/Update</button>
+	</div>
+	```
+	
+	**Luego de compilarlo para posteriormente desplegarlo en localhost, el botón queda de la siguiente forma, luego de graficar en el canvas el plano.**
+	
+	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto4.0.PNG)
+	
+	**Después de oprimirlo, se borra el canvas actual, como se ve a continuación.**
+	
+	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto4.1.PNG)
 	
 	Esta opción debe cambiar la manera como funciona la opción 'save/update', pues en este caso, al oprimirse la primera vez debe (igualmente, usando promesas):
 
