@@ -52,6 +52,10 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 	1. Se agregue el punto al final de la secuencia de puntos del canvas actual (sólo en la memoria de la aplicación, AÚN NO EN EL API!).
 	2. Se repinte el dibujo.
 
+**Luego de agregar lo que hace falta en los módulos para que cada ves que se capturen nuevos puntos en el canvas abierto se agreguen el punto al final de la secuencia de puntos del canvas actual y se repinte el dibujo, al compilar y desplegar la página, se observa que al abrir el plano de ```John Connor``` se grafica de la siguiente forma.**
+
+![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto2.PNG)
+
 3. Agregue el botón Save/Update. Respetando la arquitectura de módulos actual del cliente, haga que al oprimirse el botón:
 	1. Se haga PUT al API, con el plano actualizado, en su recurso REST correspondiente.
 	2. Se haga GET al recurso /blueprints, para obtener de nuevo todos los planos realizados.
