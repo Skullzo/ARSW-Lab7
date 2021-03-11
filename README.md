@@ -57,9 +57,44 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto2.PNG)
 
 3. Agregue el botón Save/Update. Respetando la arquitectura de módulos actual del cliente, haga que al oprimirse el botón:
+
+	**Primero se agrega el botón Save/Update en el ```index.html```, quedando el código de la siguiente forma.**
+
+	```html
+	<div class="column" >
+		</br>
+		</br>
+		</br>
+		<canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+		</br>
+		<button type="button" onclick="app.modify()">Save/Update</button>
+		<button type="button" onclick="app.delete()">Delete</button>
+	</div>	
+	```
+	
+	**Luego de compilarlo para posteriormente desplegarlo en localhost, el botón queda de la siguiente forma.**
+	
+	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto3.PNG)
+	
 	1. Se haga PUT al API, con el plano actualizado, en su recurso REST correspondiente.
-	2. Se haga GET al recurso /blueprints, para obtener de nuevo todos los planos realizados.
-	3. Se calculen nuevamente los puntos totales del usuario.
+	
+	**Para hacer el PUT en el API con el plano actualizado en su recurso GET correspondiente, se implementa la función ```putBlueprint``` en ```app.js``` para que realice el correspondiente PUT del plano. La implementación queda de la siguiente forma.**
+	
+	```javascript
+	var putBlueprint = function(){
+	      if (blueprintAct != null){
+		  $.ajax({
+		      url: "/blueprints/"+blueprintAct.author+"/"+blueprintAct.name,
+		      type: 'PUT',
+		      data: JSON.stringify(blueprintAct),
+		      contentType: "application/json"
+		  });
+	      }
+	}
+	```
+
+	3. Se haga GET al recurso /blueprints, para obtener de nuevo todos los planos realizados.
+	4. Se calculen nuevamente los puntos totales del usuario.
 
 	Para lo anterior tenga en cuenta:
 
