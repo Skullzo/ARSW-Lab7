@@ -178,74 +178,74 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 	* Haga DELETE del recurso correspondiente.
 	* Haga GET de los planos ahora disponibles.
 
-**Primero se agrega el botón ```Delete``` en el ```index.html```, quedando el código de la siguiente forma.**
+	**Primero se agrega el botón ```Delete``` en el ```index.html```, quedando el código de la siguiente forma.**
 
-```html
-<div class="column" >
-	<button type="button" onclick="app">Create new blueprint</button>
-        </br>
-        </br>
-        </br>
-        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
-        </br>
-        <button type="button" onclick="app.modify()">Save/Update</button>
-	<button type="button" onclick="app.delete()">Delete</button>
-</div>
-```
-	
-**Luego de compilarlo para posteriormente desplegarlo en localhost, el botón queda de la siguiente forma.**
-	
-![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto5.1.PNG)
+	```html
+	<div class="column" >
+		<button type="button" onclick="app">Create new blueprint</button>
+		</br>
+		</br>
+		</br>
+		<canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+		</br>
+		<button type="button" onclick="app.modify()">Save/Update</button>
+		<button type="button" onclick="app.delete()">Delete</button>
+	</div>
+	```
 
-**Ahora en ```app.js``` se agregó la función ```deleteBlueprint``` encargada de realizar el ```Delete``` en el Canvas. La función se implementó de la siguiente forma.**
+	**Luego de compilarlo para posteriormente desplegarlo en localhost, el botón queda de la siguiente forma.**
 
-```javascript
-var deleteBlueprint = function(){
-        var prom = $.ajax({
-            url: "/blueprints/"+blueprintAct.author+"/"+blueprintAct.name,
-            type: 'DELETE',
-            contentType: "application/json"
-        });
+	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto5.1.PNG)
 
-        prom.then(
-            function(){
-                console.info('Delete OK');
-            },
-            function(){
-                console.info('Delete No OK');
-            }
-        );
+	**Ahora en ```app.js``` se agregó la función ```deleteBlueprint``` encargada de realizar el ```Delete``` en el Canvas. La función se implementó de la siguiente forma.**
 
-        return prom;
-}
-```
+	```javascript
+	var deleteBlueprint = function(){
+		var prom = $.ajax({
+		    url: "/blueprints/"+blueprintAct.author+"/"+blueprintAct.name,
+		    type: 'DELETE',
+		    contentType: "application/json"
+		});
 
-**Para garantizar el funcionamiento de ```Delete```, se tuvo que implementar en el código fuente, específicamente en la clase ```BlueprintsPersistence``` en donde se añadió el método ```deleteBlueprint``` para poder garantizar el funcionamiento del DELETE, quedando el método de la siguiente forma.**
+		prom.then(
+		    function(){
+			console.info('Delete OK');
+		    },
+		    function(){
+			console.info('Delete No OK');
+		    }
+		);
 
-```java
-public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException;
-```
+		return prom;
+	}
+	```
 
-**Luego, en el mismo código fuente pero en la clase ```InMemoryBlueprintPersistence```, se implementó el método ```deleteBlueprint```, quedando el método de la siguiente forma.**
+	**Para garantizar el funcionamiento de ```Delete```, se tuvo que implementar en el código fuente, específicamente en la clase ```BlueprintsPersistence``` en donde se añadió el método ```deleteBlueprint``` para poder garantizar el funcionamiento del DELETE, quedando el método de la siguiente forma.**
 
-```java
-@Override
-public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException{
-	blueprints.remove(new Tuple<>(author, name));
-}
-```
+	```java
+	public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException;
+	```
 
-**Por último, se añadió a la clase ```BlueprintsServices``` el método ```deleteBlueprint``` para finalmente terminar de implementar el funcionamiento del DELETE en el recurso correspondiente. El método se implementó de la siguiente forma.**
+	**Luego, en el mismo código fuente pero en la clase ```InMemoryBlueprintPersistence```, se implementó el método ```deleteBlueprint```, quedando el método de la siguiente forma.**
 
-```java
-public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException{
-	bpp.deleteBlueprint(author, name);
-}
-```
+	```java
+	@Override
+	public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException{
+		blueprints.remove(new Tuple<>(author, name));
+	}
+	```
 
-**Para probar el funcionamiento del ```Delete```, se despliega la página en el navegador, y luego de dibujar el plano y guardarlo, se oprime el botón ```Delete```. Luego de primir el botón ```Delete```, al ir al recurso de ```/blueprints``` ingresando la URL en el navegador ```http://localhost:8080/blueprints```. Como se ve a continuación, el plano que ha sido creado con anterioridad ha sido borrado.**
+	**Por último, se añadió a la clase ```BlueprintsServices``` el método ```deleteBlueprint``` para finalmente terminar de implementar el funcionamiento del DELETE en el recurso correspondiente. El método se implementó de la siguiente forma.**
 
-![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/BlueprintsDeleted.PNG)
+	```java
+	public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException{
+		bpp.deleteBlueprint(author, name);
+	}
+	```
+
+	**Para probar el funcionamiento del ```Delete```, se despliega la página en el navegador, y luego de dibujar el plano y guardarlo, se oprime el botón ```Delete```. Luego de primir el botón ```Delete```, al ir al recurso de ```/blueprints``` ingresando la URL en el navegador ```http://localhost:8080/blueprints```. Como se ve a continuación, el plano que ha sido creado con anterioridad ha sido borrado.**
+
+	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/BlueprintsDeleted.PNG)
 
 ## Autores
 [Alejandro Toro Daza](https://github.com/Skullzo)
