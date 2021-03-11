@@ -94,7 +94,25 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 	```
 
 	3. Se haga GET al recurso /blueprints, para obtener de nuevo todos los planos realizados.
-	4. Se calculen nuevamente los puntos totales del usuario.
+
+	**Para hacer el GET al recurso ```/blueprints```, y así obtener de nuevo todos los planos realizados, se implementa nuevamente en ```app.js``` la función ```blueprintsA```, quedando el código de la siguiente forma.**
+	
+	```javascript
+	var blueprintsA = function(){
+	      allBlueprints=$.get("http://localhost:8080/blueprints");
+	      allBlueprints.then(
+		  function (data) {
+		      responseAll = data;
+		  },
+		  function () {
+		      alert("$.get failed!");
+		  }
+	      );
+	      return responseAll;
+	};
+	```
+
+	5. Se calculen nuevamente los puntos totales del usuario.
 
 	Para lo anterior tenga en cuenta:
 
