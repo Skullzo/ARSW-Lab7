@@ -6,16 +6,16 @@ var apimok = (function () {
             name: "house",
             points: [
                 {
-                    x: 10,
-                    y: 20
+                    x: 50,
+                    y: 2
                 },
                 {
-                    x: 15,
-                    y: 25
+                    x: 100,
+                    y: 50
                 },
                 {
-                    x: 45,
-                    y: 25
+                    x: 200,
+                    y: 2
                 }
             ]
         },
@@ -28,8 +28,8 @@ var apimok = (function () {
                     y: 35
                 },
                 {
-                    x: 40,
-                    y: 45
+                    x: 100,
+                    y: 100
                 }
             ]
         }

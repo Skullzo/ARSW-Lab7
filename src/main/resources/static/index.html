@@ -8,7 +8,7 @@
         padding: 5px;
     }
     table{
-        width: 40%;
+        width: 80%;
         margin-bottom: 20px;
         border-collapse: collapse;
     }
@@ -18,6 +18,12 @@
     table th, table td{
         padding: 10px;
         text-align: left;
+    }
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
     }
 </style>
 <head>
@@ -29,43 +35,48 @@
     <script src="js/app.js"></script>
     <link rel="stylesheet"
           href="/webjars/bootstrap/4.1.2/css/bootstrap.min.css" />
-    <title>Blueprints</title>
+    <title>Planos</title>
 </head>
 <body>
 <h1>Planos</h1>
 <div>
-    <div >
+    <div class="column">
         <a>Autor:</a>
         <input type="text" id="autor">
         <button type="button"  onclick="app.plansAuthor()">Obtener Planos</button>
-        </br>
+
         </br>
         <body>
-        <label>Planos del autor:</label>
         <table id="tabla">
             <thead>
             <tr>
-                <th>Nombre del plano</th>
-                <th>Puntos</th>
-                <th>Abrir</th>
+                <th>Nombre del Plano</th>
+                <th>Número de Puntos</th>
+                <th>Abrir Plano</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td id="nombreActor">La Monalisa</td>
-                <td id="puntos">25</td>
-                <td type="button" value=nombreActor onclick="app.drawPlan()">Abrir</td>
             </tr>
             </tbody>
         </table>
-        <label>Puntos totales de usuario:</label>
+        <label>Puntos totales de usuario: </label>
         <label id="puntosLabel">0</label>
         </br>
-        </br>
-        <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;">
-        </canvas>
         </body>
     </div>
+    <div class="column" >
+        <button type="button" onclick="app">Create new blueprint</button>
+        </br>
+        </br>
+        </br>
+        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+        </br>
+        <button type="button" onclick="app.modify()">Save/Update</button>
+        <button type="button" onclick="app.delete()">Delete</button>
+    </div>
+    </br>
+    </br>
 </div>
 </body>
 </html>

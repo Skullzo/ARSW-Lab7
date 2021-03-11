@@ -14,6 +14,8 @@ import java.util.Set;
  */
 public interface BlueprintsPersistence {
     
+    public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException;
+    
     /**
      * 
      * @param bp the new blueprint
