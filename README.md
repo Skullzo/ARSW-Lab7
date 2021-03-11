@@ -155,9 +155,13 @@ Este laboratorio tiene como fin, actualizar en Front para que se pueda comunicar
 	</div>
 	```
 	
-	**Luego de compilarlo para posteriormente desplegarlo en localhost, el botón queda de la siguiente forma.**
+	**Luego de compilarlo para posteriormente desplegarlo en localhost, el botón queda de la siguiente forma, luego de graficar en el canvas el plano.**
 	
 	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto4.0.PNG)
+	
+	**Después de oprimirlo, se borra el canvas actual, como se ve a continuación.**
+	
+	![img](https://github.com/Skullzo/ARSW-Lab7/blob/main/img/Punto4.1.PNG)
 	
 	Esta opción debe cambiar la manera como funciona la opción 'save/update', pues en este caso, al oprimirse la primera vez debe (igualmente, usando promesas):
 
